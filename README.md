@@ -8,10 +8,31 @@ Este repositório armazena os notebooks e conjuntos de dados utilizados para a a
 
 ## 📑 Sumário
 
+* [Estrutura do Repositório](#estrutura-do-repositório)
 * [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 * [Conjuntos de Dados e Análises](#-conjuntos-de-dados-e-analises)
 * [Metodologia Aplicada](#-metodologia-aplicada)
 * [Como Executar o Projeto](#-como-executar-o-projeto)
+
+
+---
+
+## Estrutura do Repositório
+
+```
+Diagnostico-Regressao-Linear/
+├── datasets/
+│   ├── alligator.txt
+│   ├── ConcPatog.txt
+│   └── treadwear.txt
+├── notebooks/
+│   ├── 01_02_EDA_Regressao.ipynb # Treadwear e Alligators
+│   └── 03_EDA_Regressao_Patogenos.ipynb # ConcPatog
+├── .env.example # Modelo do arquivo de configuração local
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
 
 ---
 
@@ -25,6 +46,9 @@ As análises exploratórias, transformações matemáticas e o ajuste dos modelo
 * **Statsmodels**: Ajuste das regressões lineares pelo método dos Mínimos Quadrados Ordinários (OLS), extração do R² ajustado, coeficientes e testes de significância.
 * **SciPy**: Diagnóstico de resíduos, plotagem de QQ-Plots e execução do teste de normalidade de Shapiro-Wilk.
 * **Scikit-Learn**: Implementações complementares de machine learning para os modelos lineares.
+* **python-dotenv**: Leitura do caminho da pasta de dados a partir de um arquivo `.env`, evitando caminhos fixos da máquina de quem desenvolveu.
+
+Todas as dependências estão listadas no arquivo [`requirements.txt`](requirements.txt).
 
 ---
 
@@ -49,21 +73,41 @@ Para cada conjunto de dados, os notebooks implementam um pipeline estatístico:
 
 ---
 
-## Como Executar a Aplicação
+## Como Executar o Projeto
 
 ### Pré-requisitos
+
 * Ter o **Python 3.10+** instalado na sua máquina ou utilizar a plataforma Google Colab.
-* Instalar as bibliotecas necessárias. Caso esteja executando localmente, utilize o comando:
-  ```bash
-  pip install pandas numpy matplotlib seaborn statsmodels scipy scikit-learn
-  ```
-### Execução Local
-* Clone este repositório em sua máquina:
-  ```bash
-  git clone https://github.com/beatriz7227/Diagnostico-Regressao-Linear.git
-  ```
-* Navegue até o diretório do projeto e inicie o ambiente do Jupyter:
-  ```bash
-  jupyter notebook
-  ```
+### Clonar o repositório
+
+```bash
+git clone https://github.com/beatriz7227/Diagnostico-Regressao-Linear.git
+```
+
+```bash
+cd Diagnostico-Regressao-Linear
+```
+
+### Instalar as dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configurar o caminho dos dados
+
+Os notebooks leem os arquivos da pasta `datasets/` usando a variável `DATA_DIR`. Se você mantiver a estrutura de pastas do repositório, **não precisa configurar nada**: por padrão, os notebooks procuram os dados em `../datasets`.
+
+Caso queira usar outra pasta, copie o modelo .env.example e edite o caminho:
+
+```
+DATA_DIR=C:/caminho/pasta/datasets
+```
+
+### Executar os notebooks
+
+```bash
+jupyter notebook
+```
+
 * Abra os notebooks contidos na pasta `notebooks/` e execute as células sequencialmente para reproduzir as análises, os ajustes de regressão (OLS) e os diagnósticos de resíduos.
