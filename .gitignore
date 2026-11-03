@@ -1,0 +1,14 @@
+# Variáveis de ambiente
+.env
+
+# Ambientes virtuais
+.venv/
+venv/
+
+# Python/Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Arquivos gerados pelos notebooks
+ConcPatog_exportado.csv
