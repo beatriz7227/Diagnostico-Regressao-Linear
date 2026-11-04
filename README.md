@@ -111,3 +111,8 @@ jupyter notebook
 ```
 
 * Abra os notebooks contidos na pasta `notebooks/` e execute as células sequencialmente para reproduzir as análises, os ajustes de regressão (OLS) e os diagnósticos de resíduos.
+
+## 👥 Desenvolvido por:
+
+* **Arthur Brandão** - [@ArthurBrandaoM](https://github.com/ArthurBrandaoM)
+* **Beatriz dos Santos** - [@beatriz7227](https://github.com/beatriz7227)
